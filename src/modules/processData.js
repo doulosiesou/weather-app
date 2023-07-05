@@ -1,11 +1,28 @@
-export function processData(data) {
+export function processData(data, displayState) {
   // Weather data //
+  console.log(`in processData and the displayState is ${displayState}`);
 
-  let temp = data.current.temp_f;
-  let pressure = data.current.pressure_in;
-  let humidity = data.current.humidity;
-  let windSpeed = data.current.wind_mph;
-  let airQuality = data.current.vis_miles;
+  let temp;
+  let pressure;
+  let humidity;
+  let windSpeed;
+  let airQuality;
+
+  if (displayState === "english") {
+    temp = data.current.temp_f;
+    pressure = data.current.pressure_in;
+    humidity = data.current.humidity;
+    windSpeed = data.current.wind_mph;
+    airQuality = data.current.vis_miles;
+  }
+
+  if (displayState === "metric") {
+    temp = data.current.temp_c;
+    pressure = data.current.pressure_mb;
+    humidity = data.current.humidity;
+    windSpeed = data.current.wind_kph;
+    airQuality = data.current.vis_km;
+  }
 
   let tempDisplay = document.querySelector(".temp-data");
   tempDisplay.textContent = String(temp);

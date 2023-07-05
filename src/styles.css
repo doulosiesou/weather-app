@@ -33,6 +33,7 @@ Paragraph default: 1.6
 #45260a
 
 - Accents:
+#b8d7da
 #096871
 #16828C
 #53A6AE
@@ -102,6 +103,13 @@ body {
   stroke: none;
 }
 
+#owl:hover {
+  width: 8rem;
+  height: 8rem;
+  stroke: #45260a;
+  transition: all 1s ease-in;
+}
+
 .form--container {
   display: flex;
   flex-direction: row;
@@ -114,6 +122,7 @@ body {
 }
 
 .form--btn--container {
+  margin-left: 16rem;
   display: flex;
   flex-direction: row;
 }
@@ -147,14 +156,41 @@ form input {
   gap: 1rem;
 }
 
-.btn-celsius,
-.btn-fahrenheit {
+.display-off {
+  display: none !important;
+}
+
+.display-on {
+  display: inline-block !important;
+}
+
+.btn-units-metric,
+.btn-units-english {
   font-size: 2rem;
-  padding: 0.5rem 1rem;
-  background-color: #333;
-  color: #fff;
+  font-weight: 600;
+  padding: 1rem 2rem;
   border-radius: 2rem;
   cursor: pointer;
+}
+
+.btn--english--on {
+  background-color: #fff;
+  color: #333;
+}
+
+.btn--english--off {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn--metric--on {
+  background-color: #fff;
+  color: #333;
+}
+
+.btn--metric--off {
+  background-color: #333;
+  color: #fff;
 }
 
 /* ------------------------------- */
@@ -212,6 +248,15 @@ form input {
   font-weight: 500;
 }
 
+.label-units-metric,
+.label-units-english {
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0 auto;
+}
+
 .heading-tertiary.temp-label {
   /* grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end | itemname; */
   grid-area: 1 / 1 / 2 / 2;
@@ -240,39 +285,47 @@ form input {
 .air-quality-data {
   font-size: 2rem;
   font-weight: 500;
-  display: flex;
-  justify-content: center;
+  margin: 1rem auto;
+  /* display: flex;
+  justify-content: center; */
 }
 
-.temp-label {
+.label-units-metric.temperature--metric,
+.label-units-english.temperature--english {
   /* grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end | itemname; */
   grid-area: 2 / 1 / 3 / 2;
+  margin: auto;
 }
 
 .temp-data {
   grid-area: 3 / 1 / 4 / 2;
 }
 
-.pressure-label {
-  /* grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end | itemname; */
+.label-units-metric.pressure--metric,
+.label-units-english.pressure--english {
   grid-area: 2 / 2 / 3 / 3;
+  margin: auto;
 }
 
 .pressure-data {
   grid-area: 3 / 2 / 4 / 3;
 }
 
-.humidity-label {
+.label-units-metric.humidity--metric,
+.label-units-english.humidity--english {
   /* grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end | itemname; */
   grid-area: 2 / 3 / 3 / 4;
+  margin: auto;
 }
 
 .humidity-data {
   grid-area: 3 / 3 / 4 / 4;
 }
 
-.wind-speed-label {
+.label-units-metric.wind-speed--metric,
+.label-units-english.wind-speed--english {
   grid-area: 2 / 4 / 3 / 5;
+  margin: auto;
 }
 
 .wind-speed-data {
@@ -280,8 +333,10 @@ form input {
   grid-area: 3 / 4 / 4 / 5;
 }
 
-.air-quality-label {
+.label-units-metric.air-quality--metric,
+.label-units-english.air-quality--english {
   grid-area: 2 / 5 / 3 / 6;
+  margin: auto;
 }
 
 .air-quality-data {

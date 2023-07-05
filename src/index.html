@@ -19,6 +19,7 @@
         <img
           src="./images/owl-1837497.svg"
           alt="SVG image of an owl for logo"
+          id="owl"
         />
       </div>
       <div class="container form--btn--container">
@@ -51,8 +52,12 @@
         </div>
       </div>
       <div class="units">
-        <button class="btn-celsius">&#8451;, m/s</button>
-        <button class="btn-fahrenheit">&#8457;, ft/s</button>
+        <button class="btn-units-metric btn--metric--off">
+          &#8451;, metric
+        </button>
+        <button class="btn-units-english btn--english--on">
+          &#8457;, english
+        </button>
       </div>
     </header>
 
@@ -67,6 +72,25 @@
       <h3 class="heading-tertiary humidity-label">Humidity</h3>
       <h3 class="heading-tertiary wind-speed-label">Wind Speed</h3>
       <h3 class="heading-tertiary air-quality-label">Air Quality</h3>
+
+      <span class="label-units-metric temperature--metric display-off"
+        >&#8451;</span
+      >
+      <span class="label-units-english temperature--english display-on"
+        >&#8457;</span
+      >
+      <span class="label-units-metric pressure--metric display-off">mb</span>
+      <span class="label-units-english pressure--english display-on">in</span>
+      <span class="label-units-metric humidity--metric display-off">%</span>
+      <span class="label-units-english humidity--english display-on">%</span>
+      <span class="label-units-metric wind-speed--metric display-off"
+        >km/h</span
+      >
+      <span class="label-units-english wind-speed--english display-on"
+        >miles/h</span
+      >
+      <span class="label-units-metric air-quality--metric display-off">-</span>
+      <span class="label-units-english air-quality--english display-on">-</span>
 
       <p class="temp-data">Temperature</p>
       <p class="pressure-data">Pressure</p>
