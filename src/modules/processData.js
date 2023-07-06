@@ -1,27 +1,31 @@
 export function processData(data, displayState) {
   // Weather data //
-  console.log(`in processData and the displayState is ${displayState}`);
+  console.log(`in processData line3 and the displayState is ${displayState}`);
+  console.log(
+    `in processData line 4 and the current temperature is ${data.tempF}`
+  );
 
-  let temp;
-  let pressure;
-  let humidity;
-  let windSpeed;
-  let airQuality;
+  // Retrieve current conditions icon for display
+  let currentIcon = document.querySelector(".current-conditions-icon");
+  console.log(
+    `in processData line 11 and the current conditions icon src is ${data.currentIconURL}`
+  );
+  currentIcon.src = data.currentIconURL;
 
   if (displayState === "english") {
-    temp = data.current.temp_f;
-    pressure = data.current.pressure_in;
-    humidity = data.current.humidity;
-    windSpeed = data.current.wind_mph;
-    airQuality = data.current.vis_miles;
+    var temp = data.tempF;
+    var pressure = data.pressureIn;
+    var humidity = data.humidity;
+    var windSpeed = data.windSpeedMph;
+    var airQuality = data.uv;
   }
 
   if (displayState === "metric") {
-    temp = data.current.temp_c;
-    pressure = data.current.pressure_mb;
-    humidity = data.current.humidity;
-    windSpeed = data.current.wind_kph;
-    airQuality = data.current.vis_km;
+    var temp = data.tempC;
+    var pressure = data.pressureMb;
+    var humidity = data.humidity;
+    var windSpeed = data.windSpeedKph;
+    var airQuality = data.uv;
   }
 
   let tempDisplay = document.querySelector(".temp-data");

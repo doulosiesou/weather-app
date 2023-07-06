@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import { processData } from "./modules/processData";
+import { Data } from "./modules/createDataObj";
 
 // Define apiKey and the request URL
 var apiKey =
@@ -8,6 +9,10 @@ console.log(`searthStringFront is ${apiKey}`);
 
 var startCity = "Pueblo, CO";
 var requestURL = apiKey + startCity;
+
+// Today's date
+var todaysDate = document.querySelector(".current--date");
+todaysDate.innerHTML = format(new Date(), "E MMM dd, yyyy");
 
 var currentCity = document.querySelector(".heading-primary");
 currentCity.textContent = `Current weather for: ${startCity}`;
@@ -42,7 +47,8 @@ metricBtn.addEventListener("click", function () {
       return response.json();
     })
     .then(function (response) {
-      processData(response, displayState);
+      let dataObject = new Data(response, startCity, todaysDate);
+      processData(dataObject, displayState);
     })
     .catch(function (err) {
       console.log(`in submitBtn function line 48 and error is ${err}`);
@@ -70,16 +76,13 @@ englishBtn.addEventListener("click", function () {
       return response.json();
     })
     .then(function (response) {
-      processData(response, displayState);
+      let dataObject = new Data(response, startCity, todaysDate);
+      processData(dataObject, displayState);
     })
     .catch(function (err) {
       console.log(`in submitBtn function line 76 and error is ${err}`);
     });
 });
-
-// Today's date
-var todaysDate = document.querySelector(".current--date");
-todaysDate.innerHTML = format(new Date(), "E MMM dd, yyyy");
 
 // Fetch a response from weather API for 'current' conditions
 fetch(requestURL, { mode: "cors" })
@@ -87,7 +90,8 @@ fetch(requestURL, { mode: "cors" })
     return response.json();
   })
   .then(function (response) {
-    processData(response, displayState);
+    let dataObject = new Data(response, startCity, todaysDate);
+    processData(dataObject, displayState);
   })
   .catch(function (err) {
     console.log(`Search error: ${err}`);
@@ -113,7 +117,8 @@ submitBtn.addEventListener("click", function () {
       return response.json();
     })
     .then(function (response) {
-      processData(response, displayState);
+      let dataObject = new Data(response, startCity, todaysDate);
+      processData(dataObject, displayState);
     })
     .catch(function (err) {
       console.log(`in submitBtn function line 119 and error is ${err}`);
