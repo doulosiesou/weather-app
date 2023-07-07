@@ -4,11 +4,12 @@ import { Data } from "./modules/createDataObj";
 
 // Define apiKey and the request URL
 var apiKey =
-  "https://api.weatherapi.com/v1/current.json?key=d50306b4b6774477b8f163431232406&q=";
-console.log(`searthStringFront is ${apiKey}`);
+  // "https://api.weatherapi.com/v1/current.json?key=d50306b4b6774477b8f163431232406&q=";
+  "https://api.weatherapi.com/v1/forecast.json?key=d50306b4b6774477b8f163431232406&q=";
 
 var startCity = "Pueblo, CO";
-var requestURL = apiKey + startCity;
+var reqCurrentURL = apiKey + startCity + "&days=7";
+console.log(reqCurrentURL);
 
 // Today's date
 var todaysDate = document.querySelector(".current--date");
@@ -42,7 +43,7 @@ metricBtn.addEventListener("click", function () {
     label.classList.remove("display-on");
     label.classList.add("display-off");
   }
-  fetch(requestURL, { mode: "cors" })
+  fetch(reqCurrentURL, { mode: "cors" })
     .then(function (response) {
       return response.json();
     })
@@ -51,7 +52,7 @@ metricBtn.addEventListener("click", function () {
       processData(dataObject, displayState);
     })
     .catch(function (err) {
-      console.log(`in submitBtn function line 48 and error is ${err}`);
+      console.log(`in submitBtn function line 54 and error is ${err}`);
     });
 });
 
@@ -71,7 +72,7 @@ englishBtn.addEventListener("click", function () {
     label.classList.remove("display-on");
     label.classList.add("display-off");
   }
-  fetch(requestURL, { mode: "cors" })
+  fetch(reqCurrentURL, { mode: "cors" })
     .then(function (response) {
       return response.json();
     })
@@ -85,12 +86,13 @@ englishBtn.addEventListener("click", function () {
 });
 
 // Fetch a response from weather API for 'current' conditions
-fetch(requestURL, { mode: "cors" })
+fetch(reqCurrentURL, { mode: "cors" })
   .then(function (response) {
     return response.json();
   })
   .then(function (response) {
     let dataObject = new Data(response, startCity, todaysDate);
+    // localStorage.setItem("weather", JSON.stringify(response));
     processData(dataObject, displayState);
   })
   .catch(function (err) {
@@ -106,13 +108,13 @@ submitBtn.addEventListener("click", function () {
   let city = searchStringEnd;
   // console.log(`searchStringEnd is ${searchStringEnd}`);
 
-  requestURL = apiKey + searchStringEnd;
-  // console.log(`the searchString is ${requestURL}`);
+  reqCurrentURL = apiKey + searchStringEnd;
+  // console.log(`the searchString is ${reqCurrentURL}`);
 
   let cityHeading = document.querySelector("h1");
   cityHeading.textContent = `Current weather for: ${city}`;
 
-  fetch(requestURL, { mode: "cors" })
+  fetch(reqCurrentURL, { mode: "cors" })
     .then(function (response) {
       return response.json();
     })

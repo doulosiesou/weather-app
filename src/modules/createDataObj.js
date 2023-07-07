@@ -1,8 +1,15 @@
 export function Data(response, startCity, todaysDate) {
+  // Current weather data
   this.currentIconURL = response.current.condition.icon;
+  console.log(
+    `inside createDataObj line 4 and the current icon url is ${this.currentIconURL}`
+  );
+
   this.city = startCity;
   this.date = todaysDate;
   this.tempF = response.current.temp_f;
+  console.log(`inside createDataObject line 12 and tempF is ${this.tempF} `);
+
   this.tempC = response.current.temp_c;
   this.pressureMb = response.current.pressure_mb;
   this.pressureIn = response.current.pressure_in;
@@ -11,17 +18,11 @@ export function Data(response, startCity, todaysDate) {
   this.windSpeedKph = response.current.wind_kph;
   this.uv = response.current.uv;
 
-  console.log(`inside createDataObj and start city is ${this.city}`);
-  console.log(`inside createDataObj and today's date is ${this.date}`);
-  console.log(`inside createDataObj and the temperature is ${this.tempF}`);
-  console.log(
-    `inside createDataObj and the air pressure is ${this.pressureIn}`
-  );
-  console.log(`inside createDataObj and the humidity is ${this.humidity}`);
-  console.log(
-    `inside createDataObj and the wind speed is ${this.windSpeedMph}`
-  );
-  console.log(`inside createDataObj and the visibility is ${this.uv}`);
+  // Astro data
+  let sunrise = document.querySelector(".sunrise-data");
+  let sunset = document.querySelector(".sunset-data");
+  sunrise.textContent = response.forecast.forecastday[0].astro.sunrise;
+  sunset.textContent = response.forecast.forecastday[0].astro.sunset;
 
   return;
 }

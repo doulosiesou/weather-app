@@ -208,8 +208,63 @@ form input {
 /* PRIMARY HEADING - DISPLAYS CITY */
 /* ------------------------------- */
 
-.heading-secondary.current--date {
+.date-section {
+  margin: 0 auto;
+  margin-left: 42%;
+  width: 50%;
+  display: flex;
+  flex-direction: column !important;
+  gap: 2rem;
+  /* align-items: first baseline; */
+  /* justify-content: center; */
+}
+
+.sunrise-container,
+.sunset-container,
+.current-conditions-icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.current-conditions-icon-container {
+  gap: 2rem;
+}
+
+.current-conditions-icon {
+  margin-bottom: 0;
+}
+
+.sunrise-data,
+.sunset-data {
+  display: inline-block;
+  margin-left: 2rem;
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.sunrise-label,
+.sunset-label,
+.current-conditions-label {
+  display: inline-block;
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.current-conditions-label {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   font-size: 3rem;
+  font-weight: 500;
+}
+
+.heading-secondary.current--date {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  font-size: 3rem;
+  display: inline-block;
+  text-align: left;
 }
 
 .heading-primary,

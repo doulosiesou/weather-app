@@ -65,14 +65,27 @@
 
     <div class="current-conditions">
       <h1 class="heading-primary"></h1>
-      <img
-        src="#"
-        class="current-conditions-icon"
-        alt="Current conditions icon from weather api"
-      />
     </div>
+    <div class="date-section">
+      <h2 class="heading-secondary current--date">Current Date</h2>
+      <div class="sunrise-container">
+        <p class="sunrise-label">Sunrise:</p>
+        <span class="sunrise-data">sunrise data</span>
+      </div>
+      <div class="sunset-container">
+        <p class="sunset-label">Sunset:</p>
+        <span class="sunset-data">sunset data</span>
+      </div>
+      <div class="current-conditions-icon-container">
+        <p class="current-conditions-label">Current conditions:</p>
 
-    <h2 class="heading-secondary current--date">Current Date</h2>
+        <img
+          src="#"
+          class="current-conditions-icon"
+          alt="Current conditions icon from weather api"
+        />
+      </div>
+    </div>
 
     <div class="container container--results">
       <h3 class="heading-tertiary temp-label">Temperature</h3>
@@ -106,7 +119,12 @@
       <p class="wind-speed-data">Wind Speed</p>
       <p class="air-quality-data">Air Quality</p>
     </div>
-
+    <footer>
+      Powered by
+      <a href="https://www.weatherapi.com/" title="Free Weather API"
+        >WeatherAPI.com</a
+      >
+    </footer>
     <script src="../dist/bundle.js"></script>
   </body>
 </html>
