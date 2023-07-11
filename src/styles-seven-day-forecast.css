@@ -425,7 +425,7 @@ form input {
   background-color: #fdf2e9;
 
   display: grid;
-  grid-template-columns: 10fr 10fr 10fr 10fr 10fr 1fr;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr, 0.1fr;
   border-bottom: 1px solid #444;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
 }
@@ -501,9 +501,8 @@ form input {
 /* DAY ONE FORECAST */
 
 .dayone-date {
-  margin-top: 2rem;
-  padding: 2px 0;
   grid-area: 4 / 1 / 5 / 2;
+  margin-top: 2rem;
 }
 
 .dayone-high-temp {
@@ -537,70 +536,163 @@ form input {
   height: 4.2rem;
 }
 
-.border-one {
-  grid-column: 1 / -1;
-  border-bottom: 2px groove #eee;
-  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
-}
-
 /* DAY TWO FORECAST */
 
 .daytwo-date {
-  grid-area: 6 / 1 / 7 / 2;
+  grid-area: 5 / 1 / 6 / 2;
 }
 
 .daytwo-high-temp {
-  grid-area: 6 / 2 / 7 / 3;
+  grid-area: 5 / 2 / 8 / 3;
 }
 
 .daytwo-low-temp {
-  grid-area: 6 / 3 / 7 / 4;
+  grid-area: 5 / 3 / 6 / 4;
 }
 
 .daytwo-percent-chance-rain {
-  grid-area: 6 / 4 / 7 / 5;
+  grid-area: 5 / 4 / 6 / 5;
 }
 
 .daytwo-max-wind-speed {
-  grid-area: 6 / 5 / 7 / 6;
+  grid-area: 5 / 5 / 6 / 6;
 }
 
 .forecast-conditions-icon-daytwo {
-  grid-area: 6 / 6 / 7 / 7;
+  grid-area: 5 / 6 / 6 / 7;
   margin: auto;
-}
-
-.border-two {
-  grid-column: 1 / -1;
-  border-bottom: 2px groove #eee;
 }
 
 /* DAY THREE FORECAST */
 
 .daythree-date {
-  grid-area: 8 / 1 / 9 / 2;
+  grid-area: 6 / 1 / 7 / 2;
 }
 
 .daythree-high-temp {
-  grid-area: 8 / 2 / 9 / 3;
+  grid-area: 6 / 2 / 7 / 3;
 }
 
 .daythree-low-temp {
-  grid-area: 8 / 3 / 9 / 4;
+  grid-area: 6 / 3 / 7 / 4;
 }
 
 .daythree-percent-chance-rain {
-  grid-area: 8 / 4 / 9 / 5;
+  grid-area: 6 / 4 / 7 / 5;
 }
 
 .daythree-max-wind-speed {
-  grid-area: 8 / 5 / 9 / 6;
+  grid-area: 6 / 5 / 7 / 6;
 }
 
 .forecast-conditions-icon-daythree {
-  grid-area: 8 / 6 / 9 / 7;
+  grid-area: 6 / 6 / 7 / 7;
   margin: auto;
 }
+
+/* DAY FOUR FORECAST */
+/* .dayfour-date {
+  grid-area: 7 / 1 / 8 / 2;
+}
+
+.dayfour-high-temp {
+  grid-area: 7 / 2 / 8 / 3;
+}
+
+.dayfour-low-temp {
+  grid-area: 7 / 3 / 8 / 4;
+}
+
+.dayfour-percent-chance-rain {
+  grid-area: 7 / 4 / 8 / 5;
+}
+
+.dayfour-max-wind-speed {
+  grid-area: 7 / 5 / 8 / 6;
+}
+
+.forecast-conditions-icon-dayfour {
+  grid-area: 7 / 6 / 8 / 7;
+  margin: auto;
+} */
+
+/* DAY FIVE FORECAST */
+/* .dayfive-date {
+  grid-area: 8 / 1 / 9 / 2;
+}
+
+.dayfive-high-temp {
+  grid-area: 8 / 2 / 9 / 3;
+}
+
+.dayfive-low-temp {
+  grid-area: 8 / 3 / 9 / 4;
+}
+
+.dayfive-percent-chance-rain {
+  grid-area: 8 / 4 / 9 / 5;
+}
+
+.dayfive-max-wind-speed {
+  grid-area: 8 / 5 / 9 / 6;
+}
+
+.forecast-conditions-icon-dayfive {
+  grid-area: 8 / 6 / 9 / 7;
+  margin: auto;
+} */
+
+/* DAY SIX FORECAST */
+/* .daysix-date {
+  grid-area: 9 / 1 / 10 / 2;
+}
+
+.daysix-high-temp {
+  grid-area: 9 / 2 / 10 / 3;
+}
+
+.daysix-low-temp {
+  grid-area: 9 / 3 / 10 / 4;
+}
+
+.daysix-percent-chance-rain {
+  grid-area: 9 / 4 / 10 / 5;
+}
+
+.daysix-max-wind-speed {
+  grid-area: 9 / 5 / 10 / 6;
+}
+
+.forecast-conditions-icon-daysix {
+  grid-area: 9 / 6 / 10 / 7;
+  margin: auto;
+} */
+
+/* DAY SEVEN FORECAST */
+/* .dayseven-date {
+  grid-area: 10 / 1 / 11 / 2;
+}
+
+.dayseven-high-temp {
+  grid-area: 10 / 2 / 11 / 3;
+}
+
+.dayseven-low-temp {
+  grid-area: 10 / 3 / 11 / 4;
+}
+
+.dayseven-percent-chance-rain {
+  grid-area: 10 / 4 / 11 / 5;
+}
+
+.dayseven-max-wind-speed {
+  grid-area: 10 / 5 / 11 / 6;
+}
+
+.forecast-conditions-icon-dayseven {
+  grid-area: 10 / 6 / 11 / 7;
+  margin: auto;
+} */
 
 .subheading {
   display: block;

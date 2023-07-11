@@ -23,7 +23,13 @@ var metricBtn = document.querySelector(".btn-units-metric");
 var englishBtn = document.querySelector(".btn-units-english");
 
 var labelMetricUnits = document.querySelectorAll(".label-units-metric");
+var labelForecastMetricUnits = document.querySelectorAll(
+  ".forecast-labels-units.metric"
+);
 var labelEnglishUnits = document.querySelectorAll(".label-units-english");
+var labelForecastEnglishUnits = document.querySelectorAll(
+  ".forecast-labels-units.english"
+);
 
 var displayState = "english";
 
@@ -39,7 +45,15 @@ metricBtn.addEventListener("click", function () {
     label.classList.remove("display-off");
     label.classList.add("display-on");
   }
+  for (let label of labelForecastMetricUnits) {
+    label.classList.remove("display-off");
+    label.classList.add("display-on");
+  }
   for (let label of labelEnglishUnits) {
+    label.classList.remove("display-on");
+    label.classList.add("display-off");
+  }
+  for (let label of labelForecastEnglishUnits) {
     label.classList.remove("display-on");
     label.classList.add("display-off");
   }
@@ -91,8 +105,10 @@ fetch(reqCurrentURL, { mode: "cors" })
     return response.json();
   })
   .then(function (response) {
+    localStorage.clear("weather");
+    localStorage.setItem("weather", JSON.stringify(response));
+
     let dataObject = new Data(response, startCity, todaysDate);
-    // localStorage.setItem("weather", JSON.stringify(response));
     processData(dataObject, displayState);
   })
   .catch(function (err) {

@@ -19,10 +19,12 @@ export function Data(response, startCity, todaysDate) {
   this.uv = response.current.uv;
 
   // Astro data
-  let sunrise = document.querySelector(".sunrise-data");
-  let sunset = document.querySelector(".sunset-data");
-  sunrise.textContent = response.forecast.forecastday[0].astro.sunrise;
-  sunset.textContent = response.forecast.forecastday[0].astro.sunset;
+  this.sunrise = response.forecast.forecastday[0].astro.sunrise;
+  this.sunset = response.forecast.forecastday[0].astro.sunset;
+
+  // Forecast data
+  this.forecastData = response.forecast;
+  console.log(this.forecastData);
 
   return;
 }
