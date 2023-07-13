@@ -63,29 +63,27 @@
 
     <!-- ------------------------------------------ -->
 
-    <div class="current-conditions">
-      <h1 class="heading-primary"></h1>
+    <div class="heading-container">
+      <h1 class="heading-primary current-conditions"></h1>
+      <img
+        src="#"
+        class="current-conditions-icon"
+        alt="Current conditions icon from weather api"
+      />
     </div>
     <div class="date-section">
       <h2 class="heading-secondary current--date">Current Date</h2>
       <div class="sunrise-container">
         <p class="sunrise-label">Sunrise:</p>
-        <span class="sunrise-data">sunrise data</span>
+        <p class="sunrise-data">sunrise data</p>
       </div>
       <div class="sunset-container">
         <p class="sunset-label">Sunset:</p>
-        <span class="sunset-data">sunset data</span>
-      </div>
-      <div class="current-conditions-icon-container">
-        <p class="current-conditions-label">Current conditions:</p>
-
-        <img
-          src="#"
-          class="current-conditions-icon"
-          alt="Current conditions icon from weather api"
-        />
+        <p class="sunset-data">sunset data</p>
       </div>
     </div>
+
+    <p class="current-conditions-label">Current conditions:</p>
 
     <div class="container container--results">
       <h3 class="heading-tertiary temp-label">Temperature</h3>

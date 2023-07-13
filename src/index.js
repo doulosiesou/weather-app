@@ -112,7 +112,7 @@ fetch(reqCurrentURL, { mode: "cors" })
     processData(dataObject, displayState);
   })
   .catch(function (err) {
-    console.log(`Search error: ${err}`);
+    console.log(`Index line 115 Search error: ${err}`);
   });
 
 // Gather search data from text input and create submitBtn event listener
