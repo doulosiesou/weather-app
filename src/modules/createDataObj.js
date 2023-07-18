@@ -8,8 +8,6 @@ export function Data(response, startCity, todaysDate) {
   this.city = startCity;
   this.date = todaysDate;
   this.tempF = response.current.temp_f;
-  console.log(`inside createDataObject line 11 and tempF is ${this.tempF} `);
-
   this.tempC = response.current.temp_c;
   this.pressureMb = response.current.pressure_mb;
   this.pressureIn = response.current.pressure_in;

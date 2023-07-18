@@ -92,7 +92,7 @@ body {
 
 .container--header {
   margin: 0 auto;
-  width: 90%;
+  /* width: 90%; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -183,8 +183,8 @@ body {
   justify-content: space-around;
   border: 3px #333 solid;
   border-right: 0;
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2.4rem;
+  border-bottom-left-radius: 2.4rem;
 }
 
 .form--btn--container {
@@ -198,9 +198,14 @@ body {
   font-size: 2rem;
   font-family: inherit;
   background-color: #fae5d3;
-  border-radius: 1rem;
   border: none;
   outline: none;
+}
+
+#search-item {
+  padding-left: 1rem;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
 }
 
 /* ------------------------------- */
@@ -225,9 +230,6 @@ body {
   padding: 0;
 }
 
-.current-conditions-icon {
-}
-
 .sunrise-container,
 .sunset-container {
   display: flex;
@@ -240,14 +242,14 @@ body {
 .sunset-data {
   margin-top: 0.5rem;
   margin-left: 1rem;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
 .sunrise-label,
 .sunset-label {
   margin-top: 0.5rem;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
@@ -288,8 +290,10 @@ body {
 }
 
 .heading-tertiary {
+  margin-top: 1.5rem;
   font-size: 2.4rem;
-  line-height: 1.2;
+  text-align: center;
+  /* line-height: 1.2; */
 }
 
 .container.container--results {
@@ -298,7 +302,7 @@ body {
   background-color: #fdf2e9;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
 }
 
@@ -312,7 +316,7 @@ body {
 
 .label-units-metric,
 .label-units-english {
-  display: inline-block;
+  /* display: inline-block; */
   font-size: 1.8rem;
   font-weight: 500;
   color: #333;
@@ -658,10 +662,31 @@ body {
 /* FOOTER */
 
 footer {
-  font-size: 2rem;
-  font-weight: 400;
   color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.footer-text {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-right: 1rem;
+}
+
+weatherapi-attribution:link,
+weatherapi-attribution:visited {
+  font-size: 1.6rem;
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+weatherapi-attribution:hover,
+weatherapi-attribution:active {
+  color: #cf711f;
+  border-bottom: 1px solid transparent;
 }

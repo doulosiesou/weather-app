@@ -1,17 +1,10 @@
 import { format } from "date-fns";
 
 export function processData(data, displayState) {
-  // Weather data //
-  // console.log(`in processData line3 and the displayState is ${displayState}`);
-  // console.log(
-  //   `in processData line 4 and the current temperature is ${data.tempF}`
-  // );
+  console.log(`inside processData line 5 and displayState is ${displayState}`);
 
   // Retrieve current conditions icon for display
   let currentIcon = document.querySelector(".current-conditions-icon");
-  // console.log(
-  //   `in processData line 11 and the current conditions icon src is ${data.currentIconURL}`
-  // );
   currentIcon.src = data.currentIconURL;
 
   if (displayState === "english") {
@@ -22,9 +15,9 @@ export function processData(data, displayState) {
     var airQuality = data.uv;
 
     // Assign background color from temperature color palette
-    const searchBtn = document.body.querySelector(".search-btn");
-    const searchItem = document.body.querySelector(".search-item");
-    const formContainer = document.body.querySelector(".form--container");
+    var searchBtn = document.body.querySelector(".search-btn");
+    var searchItem = document.body.querySelector(".search-item");
+    var formContainer = document.body.querySelector(".form--container");
     if (temp >= 110) {
       document.body.style.background =
         "linear-gradient(to top, rgb(249, 65, 68), rgba(249, 65, 68, 0.15))";
@@ -90,6 +83,9 @@ export function processData(data, displayState) {
     var airQuality = data.uv;
 
     // Assign background color from temperature color palette
+    var searchBtn = document.body.querySelector(".search-btn");
+    var searchItem = document.body.querySelector(".search-item");
+    var formContainer = document.body.querySelector(".form--container");
     if (temp >= 43.33) {
       document.body.style.background =
         "linear-gradient(to top, rgb(249, 65, 68), rgba(249, 65, 68, 0.15))";
@@ -191,13 +187,11 @@ export function processData(data, displayState) {
       forecastMWSs[i].textContent =
         data.forecastData.forecastday[i].day.maxwind_mph;
       let iconURL = data.forecastData.forecastday[i].day.condition.icon;
-      console.log(`inside processData and the current iconURL is ${iconURL} `);
       forecastIcons[i].src = String(iconURL);
     }
   }
   if (displayState === "metric") {
     for (let i = 0; i <= 2; i++) {
-      console.log(`inside processData line 63 and i is ${i}`);
       forecastDays[i].textContent = data.forecastData.forecastday[i].date;
       forecastHighTemps[i].textContent =
         data.forecastData.forecastday[i].day.maxtemp_c;
@@ -208,7 +202,6 @@ export function processData(data, displayState) {
       forecastMWSs[i].textContent =
         data.forecastData.forecastday[i].day.maxwind_kph;
       let iconURL = data.forecastData.forecastday[i].day.condition.icon;
-      console.log(`inside processData and the current iconURL is ${iconURL} `);
       forecastIcons[i].src = String(iconURL);
     }
   }

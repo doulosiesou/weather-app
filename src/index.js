@@ -3,35 +3,37 @@ import { processData } from "./modules/processData";
 import { Data } from "./modules/createDataObj";
 
 // Define apiKey and the request URL
-var apiKey =
+const apiKey =
   // "https://api.weatherapi.com/v1/current.json?key=d50306b4b6774477b8f163431232406&q=";
   "https://api.weatherapi.com/v1/forecast.json?key=d50306b4b6774477b8f163431232406&q=";
 
 var startCity = "Pueblo, CO";
+let city = startCity;
 var reqCurrentURL = apiKey + startCity + "&days=7";
 console.log(reqCurrentURL);
 
 // Today's date
-var todaysDate = document.querySelector(".current--date");
-todaysDate.innerHTML = format(new Date(), "E MMM dd, yyyy");
+const todaysDateLabel = document.querySelector(".current--date");
+let todaysDate = format(new Date(), "E MMM dd, yyyy");
+todaysDateLabel.innerHTML = todaysDate;
 
-var currentCity = document.querySelector(".heading-primary");
-currentCity.textContent = `Current weather for: ${startCity}`;
+let currentCity = document.querySelector(".heading-primary");
+currentCity.textContent = `Current weather for: ${city}`;
 
 // Create label objects and event listeners for unit buttons in top right
-var metricBtn = document.querySelector(".btn-units-metric");
-var englishBtn = document.querySelector(".btn-units-english");
+const metricBtn = document.querySelector(".btn-units-metric");
+const englishBtn = document.querySelector(".btn-units-english");
 
-var labelMetricUnits = document.querySelectorAll(".label-units-metric");
-var labelForecastMetricUnits = document.querySelectorAll(
+const labelMetricUnits = document.querySelectorAll(".label-units-metric");
+const labelForecastMetricUnits = document.querySelectorAll(
   ".forecast-labels-units.metric"
 );
-var labelEnglishUnits = document.querySelectorAll(".label-units-english");
-var labelForecastEnglishUnits = document.querySelectorAll(
+const labelEnglishUnits = document.querySelectorAll(".label-units-english");
+const labelForecastEnglishUnits = document.querySelectorAll(
   ".forecast-labels-units.english"
 );
 
-var displayState = "english";
+let displayState = "english";
 
 metricBtn.addEventListener("click", function () {
   displayState = "metric";
@@ -62,11 +64,11 @@ metricBtn.addEventListener("click", function () {
       return response.json();
     })
     .then(function (response) {
-      let dataObject = new Data(response, startCity, todaysDate);
+      let dataObject = new Data(response, city, todaysDate);
       processData(dataObject, displayState);
     })
     .catch(function (err) {
-      console.log(`in submitBtn function line 54 and error is ${err}`);
+      console.log(`in submitBtn function line 71 and error is ${err}`);
     });
 });
 
@@ -82,7 +84,15 @@ englishBtn.addEventListener("click", function () {
     label.classList.remove("display-off");
     label.classList.add("display-on");
   }
+  for (let label of labelForecastEnglishUnits) {
+    label.classList.remove("display-off");
+    label.classList.add("display-on");
+  }
   for (let label of labelMetricUnits) {
+    label.classList.remove("display-on");
+    label.classList.add("display-off");
+  }
+  for (let label of labelForecastMetricUnits) {
     label.classList.remove("display-on");
     label.classList.add("display-off");
   }
@@ -91,7 +101,7 @@ englishBtn.addEventListener("click", function () {
       return response.json();
     })
     .then(function (response) {
-      let dataObject = new Data(response, startCity, todaysDate);
+      let dataObject = new Data(response, city, todaysDate);
       processData(dataObject, displayState);
     })
     .catch(function (err) {
@@ -108,7 +118,7 @@ fetch(reqCurrentURL, { mode: "cors" })
     localStorage.clear("weather");
     localStorage.setItem("weather", JSON.stringify(response));
 
-    let dataObject = new Data(response, startCity, todaysDate);
+    let dataObject = new Data(response, city, todaysDate);
     processData(dataObject, displayState);
   })
   .catch(function (err) {
@@ -116,29 +126,31 @@ fetch(reqCurrentURL, { mode: "cors" })
   });
 
 // Gather search data from text input and create submitBtn event listener
-var searchValue = document.querySelector(".search-item");
-var submitBtn = document.querySelector(".search-btn");
+let searchValue = document.querySelector(".search-item");
+let submitBtn = document.querySelector(".search-btn");
 
 submitBtn.addEventListener("click", function () {
   let searchStringEnd = searchValue.value;
-  let city = searchStringEnd;
-  // console.log(`searchStringEnd is ${searchStringEnd}`);
-
-  reqCurrentURL = apiKey + searchStringEnd;
-  // console.log(`the searchString is ${reqCurrentURL}`);
+  city = searchStringEnd;
+  // apiKey + startCity + "&days=7";
+  reqCurrentURL = apiKey + city + "&days=7";
 
   let cityHeading = document.querySelector("h1");
   cityHeading.textContent = `Current weather for: ${city}`;
+  console.log(`Inside submitBtn line 138 and the city is ${city}
+  and the reqCurrentURL is ${reqCurrentURL}`);
 
   fetch(reqCurrentURL, { mode: "cors" })
     .then(function (response) {
       return response.json();
     })
     .then(function (response) {
-      let dataObject = new Data(response, startCity, todaysDate);
+      console.log(`in submitBtn line 144 and the city is ${city}`);
+      let dataObject = new Data(response, city, todaysDate);
       processData(dataObject, displayState);
     })
     .catch(function (err) {
-      console.log(`in submitBtn function line 119 and error is ${err}`);
+      console.log(`in submitBtn function line 148 and error is ${err}`);
     });
+  return city;
 });

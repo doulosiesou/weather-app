@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Weather App</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="queries.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,6 +44,7 @@
               height="32"
               fill="#000000"
               viewBox="0 0 256 256"
+              class="search-icon"
             >
               <path
                 d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
@@ -171,8 +173,11 @@
       />
     </div>
     <footer>
-      Powered by
-      <a href="https://www.weatherapi.com/" title="Free Weather API"
+      <p class="footer-text">Powered by</p>
+      <a
+        class="weatherapi-attribution"
+        href="https://www.weatherapi.com/"
+        title="Free Weather API"
         >WeatherAPI.com</a
       >
     </footer>
