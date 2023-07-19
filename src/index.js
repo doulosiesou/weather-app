@@ -115,8 +115,8 @@ fetch(reqCurrentURL, { mode: "cors" })
     return response.json();
   })
   .then(function (response) {
-    localStorage.clear("weather");
-    localStorage.setItem("weather", JSON.stringify(response));
+    // localStorage.clear("weather");
+    // localStorage.setItem("weather", JSON.stringify(response));
 
     let dataObject = new Data(response, city, todaysDate);
     processData(dataObject, displayState);

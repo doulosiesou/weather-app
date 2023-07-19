@@ -22,7 +22,7 @@ export function Data(response, startCity, todaysDate) {
 
   // Forecast data
   this.forecastData = response.forecast;
-  console.log(this.forecastData);
+  // console.log(this.forecastData);
 
   return;
 }
